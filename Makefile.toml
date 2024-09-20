@@ -1,0 +1,59 @@
+[config]
+default_to_workspace = false
+
+# Metatasks invoked by CI
+# Tests
+
+[tasks.test-feature.mac]
+env = {"OUT_FILE" = "dylib"}
+
+[tasks.test-feature.linux]
+env = {"OUT_FILE" = "so", "LD_LIBRARY_PATH" = "./"}
+
+[tasks.test-feature]
+category = "Tests"
+dependencies = ["build-feature"]
+script = '''
+cp target/debug/libfeature_tests.$OUT_FILE feature/java/somelib/libsomelib.$OUT_FILE
+cd feature/java/somelib
+mvn test
+'''
+
+[tasks.gen-feature]
+category = "Code generation"
+script = '''
+mkdir feature/tmp
+cargo run -p diplomat-java -- -e feature/src/lib.rs -l feature/diplomat-java-conf.toml feature/tmp/
+rm -r feature/java/somelib/src/main
+mv feature/tmp/src/main feature/java/somelib/src/main
+rm -r feature/tmp
+'''
+# Build deps
+
+[tasks.build-feature-release]
+description = "Build feature_tests"
+category = "Plumbing"
+command = "cargo"
+args = ["build", "--release", "-p", "feature-tests"]
+
+[tasks.build-feature]
+description = "Build feature_tests"
+category = "Plumbing"
+command = "cargo"
+args = ["build", "-p", "feature-tests"]
+
+[tasks.bench-rust-feature]
+description = "Benchmark rust example"
+category = "Benchmark"
+script = '''
+cargo bench --package diplomat-example
+'''
+
+[tasks.bench-feature]
+description = "Benchmark kotlin example"
+category = "Benchmark"
+dependencies = ["gen-feature", "test-feature"]
+script = '''
+cd feature/java/somelib
+mvn jmh --warning-mode all
+'''
