@@ -3,8 +3,8 @@ name: Check Diplomat Compatibility
 
 on:
   schedule:
-    - cron: "0 0 * * 5"
-      branches: [ main ]
+    - cron: "56 0 * * 5"
+      branches: [ move-panama-backend ]
 
 env:
   CARGO_TERM_COLOR: always
