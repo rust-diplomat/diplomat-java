@@ -17,8 +17,6 @@ use serde::Deserialize;
 use diplomat_tool::{ErrorStore, FileMap};
 
 const TMP_C_DIR: &str = "tmp";
-const _TMP_LIB_NAME: &str = "dev/diplomattest/somelib"; // todo: build from conf
-const _JAVA_DIR: &str = "src/main/";
 
 mod formatter;
 
@@ -128,7 +126,10 @@ pub(crate) fn run<'a>(
                 unreachable!("Encountered unknown variant: {unknown:?} while parsing all types")
             }
         };
-        files.add_file(format!("src/main/{domain_path}/{lib_name}/{file}",), body);
+        files.add_file(
+            format!("src/main/java/{domain_path}/{lib_name}/{file}",),
+            body,
+        );
     }
 
     let c_errors = c_errors.take_all();
@@ -178,7 +179,7 @@ pub(crate) fn run<'a>(
         .arg("--include-dir")
         .arg(&tmp_path)
         .arg("--output")
-        .arg(out_folder.join("src/main/"))
+        .arg(out_folder.join("src/main/java"))
         .arg("--target-package")
         .arg(package)
         .arg("--library")
@@ -189,6 +190,17 @@ pub(crate) fn run<'a>(
     let cleanup = || {
         let mut command = std::process::Command::new("rm");
         command.arg("-r").arg(tmp_path).output()
+    };
+
+    let remove_extraneous_files = || {
+        let mut command = std::process::Command::new("rm");
+        command
+            .arg("-r")
+            .arg(out_folder.join(format!(
+                "/src/main/{domain}/{lib_name}/{{_*, funopen*, FILE.java}}",
+                domain = domain.replace(".", "/")
+            )))
+            .output()
     };
 
     match command.output() {
@@ -211,6 +223,7 @@ pub(crate) fn run<'a>(
 
             let stderr = String::from_utf8_lossy(&ok.stderr);
             println!("Std Err from jextract:\n{stderr}");
+            remove_extraneous_files().expect("Failed to remove extraneous files");
         }
     }
 

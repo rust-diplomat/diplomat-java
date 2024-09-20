@@ -1,5 +1,5 @@
 [package]
-name = "diplomat-feature-tests"
+name = "feature-tests"
 version = "0.0.0"
 publish = false
 authors = [

@@ -14168,24 +14168,6 @@ public class somelib_h {
            throw new AssertionError("should not reach here", ex$);
         }
     }
-    private static final int ErrorEnum_Foo = (int)0L;
-    /**
-     * {@snippet lang=c :
-     * enum ErrorEnum.ErrorEnum_Foo = 0
-     * }
-     */
-    public static int ErrorEnum_Foo() {
-        return ErrorEnum_Foo;
-    }
-    private static final int ErrorEnum_Bar = (int)1L;
-    /**
-     * {@snippet lang=c :
-     * enum ErrorEnum.ErrorEnum_Bar = 1
-     * }
-     */
-    public static int ErrorEnum_Bar() {
-        return ErrorEnum_Bar;
-    }
     private static final int ContiguousEnum_C = (int)0L;
     /**
      * {@snippet lang=c :
@@ -14377,13 +14359,13 @@ public class somelib_h {
     }
     /**
      * {@snippet lang=c :
-     * #define __ASSERT_FILE_NAME "jextract$14462318489172502015.h"
+     * #define __ASSERT_FILE_NAME "jextract$18314337822400972544.h"
      * }
      */
     public static MemorySegment __ASSERT_FILE_NAME() {
         class Holder {
             static final MemorySegment __ASSERT_FILE_NAME
-                = somelib_h.LIBRARY_ARENA.allocateFrom("jextract$14462318489172502015.h");
+                = somelib_h.LIBRARY_ARENA.allocateFrom("jextract$18314337822400972544.h");
         }
         return Holder.__ASSERT_FILE_NAME;
     }
