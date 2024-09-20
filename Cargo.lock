@@ -185,6 +185,26 @@ dependencies = [
 ]
 
 [[package]]
+name = "diplomat"
+version = "0.8.0"
+source = "git+https://github.com/jcrist1/diplomat?branch=tool-and-c-backend-pub#c759be8605db6453adbf97599f2179c82cfa3d5d"
+dependencies = [
+ "diplomat_core",
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
+name = "diplomat-feature-tests"
+version = "0.0.0"
+dependencies = [
+ "diplomat",
+ "diplomat-runtime",
+ "log",
+]
+
+[[package]]
 name = "diplomat-java"
 version = "0.1.0"
 dependencies = [
@@ -377,6 +397,12 @@ name = "linked-hash-map"
 version = "0.5.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0717cef1bc8b636c6e1c1bbdefc09e6322da8a9321966e8928ef80d20f7f770f"
+
+[[package]]
+name = "log"
+version = "0.4.22"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a7a70ba024b9dc04c27ea2f0c0548feb474ec5c54bba33a7f72f873a39d07b24"
 
 [[package]]
 name = "memchr"

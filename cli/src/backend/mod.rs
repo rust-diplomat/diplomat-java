@@ -223,7 +223,7 @@ pub(crate) fn run<'a>(
     .render()
     .expect("Failed to render Lib.java file");
     files.add_file(
-        format!("src/main/{domain_path}/{lib_name}/Lib.java"),
+        format!("src/main/java/{domain_path}/{lib_name}/Lib.java"),
         lib_file,
     );
     (files, errors)
