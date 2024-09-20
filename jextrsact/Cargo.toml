@@ -5,6 +5,6 @@ edition = "2021"
 
 [dependencies]
 # TODO: Change once https://github.com/rust-diplomat/diplomat/pull/694 is merged
-diplomat-runtime = { git = "https://github.com/jcrist1/diplomat.git", branch = "tool-and-c-backend-pub", package = "diplomat-runtime"}
-diplomat-tool = { git = "https://github.com/jcrist1/diplomat.git", branch = "tool-and-c-backend-pub", package = "diplomat-tool" }
-diplomat_core = { git = "https://github.com/jcrist1/diplomat.git", branch = "tool-and-c-backend-pub", package = "diplomat_core" }
+diplomat-runtime = { git = "https://github.com/jcrist1/diplomat", branch = "tool-and-c-backend-pub", package = "diplomat-runtime"}
+diplomat-tool = { git = "https://github.com/jcrist1/diplomat", branch = "tool-and-c-backend-pub", package = "diplomat-tool" }
+diplomat_core = { git = "https://github.com/jcrist1/diplomat", branch = "tool-and-c-backend-pub", package = "diplomat_core" }

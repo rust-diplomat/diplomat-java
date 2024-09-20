@@ -209,12 +209,12 @@ dependencies = [
 [[package]]
 name = "diplomat-runtime"
 version = "0.8.1"
-source = "git+https://github.com/jcrist1/diplomat.git?branch=tool-and-c-backend-pub#c759be8605db6453adbf97599f2179c82cfa3d5d"
+source = "git+https://github.com/jcrist1/diplomat?branch=tool-and-c-backend-pub#c759be8605db6453adbf97599f2179c82cfa3d5d"
 
 [[package]]
 name = "diplomat-tool"
 version = "0.8.0"
-source = "git+https://github.com/jcrist1/diplomat.git?branch=tool-and-c-backend-pub#c759be8605db6453adbf97599f2179c82cfa3d5d"
+source = "git+https://github.com/jcrist1/diplomat?branch=tool-and-c-backend-pub#c759be8605db6453adbf97599f2179c82cfa3d5d"
 dependencies = [
  "askama",
  "clap",
@@ -234,7 +234,7 @@ dependencies = [
 [[package]]
 name = "diplomat_core"
 version = "0.8.0"
-source = "git+https://github.com/jcrist1/diplomat.git?branch=tool-and-c-backend-pub#c759be8605db6453adbf97599f2179c82cfa3d5d"
+source = "git+https://github.com/jcrist1/diplomat?branch=tool-and-c-backend-pub#c759be8605db6453adbf97599f2179c82cfa3d5d"
 dependencies = [
  "displaydoc",
  "either",
