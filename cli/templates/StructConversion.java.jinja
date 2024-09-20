@@ -1,0 +1,17 @@
+var {{name}}Val = new {{ty}}({{native_val}}
+{%- for lifetime in lifetimes -%}
+, {% if lifetime.edges.len() > 1 -%}
+List.of(
+{%- for edge in lifetime.edges -%}
+{% if loop.first %}{% else %}, {% endif %}{{edge}}
+{%- endfor -%}
+)
+{%- else if lifetime.edges.len() == 0 -%}
+{%- for edge in lifetime.edges -%}
+List.of({{edge}})
+{%- endfor -%}
+{%- else -%}
+List.of()
+{%- endif -%}
+{%- endfor -%}
+);

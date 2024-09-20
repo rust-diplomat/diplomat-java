@@ -1,0 +1,20 @@
+List<Object> selfEdges = 
+{%- match self_edges %}
+{%- when Some with (self_edges) %} List.of({{self_edges}});
+{%- when None %} List.of();
+{%- endmatch %}
+
+
+{% for lifetime in lifetimes %}
+List<Object> {{lifetime.name}}Edges = List.of(
+{%- for edge in lifetime.edges -%}
+{% if loop.first %}{% else %}, {% endif %}{{edge}}
+{%- endfor -%}
+);
+
+{%- endfor %}
+var {{name}}Val = new {{ty}}({{native_val}}, selfEdges
+{%- for lifetime in lifetimes -%}
+, {{lifetime.name}}Edges
+{%- endfor -%}
+);
