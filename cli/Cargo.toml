@@ -8,10 +8,9 @@ askama = "0.12.1"
 clap = "4.5.17"
 colored = "2.1.0"
 # TODO: Change once https://github.com/rust-diplomat/diplomat/pull/694 is merged
-diplomat-runtime = { git = "https://github.com/jcrist1/diplomat.git", branch = "tool-and-c-backend-pub" }
-diplomat-tool = { git = "https://github.com/jcrist1/diplomat.git", branch = "tool-and-c-backend-pub" }
-diplomat_core = { git = "https://github.com/jcrist1/diplomat.git", branch = "tool-and-c-backend-pub" }
-displaydoc = "0.2.5"
+diplomat-runtime = { git = "https://github.com/jcrist1/diplomat.git", branch = "tool-and-c-backend-pub", package = "diplomat-runtime"}
+diplomat-tool = { git = "https://github.com/jcrist1/diplomat.git", branch = "tool-and-c-backend-pub", package = "diplomat-tool" }
+diplomat_core = { git = "https://github.com/jcrist1/diplomat.git", branch = "tool-and-c-backend-pub", package = "diplomat_core" }
 heck = "0.5.0"
 indenter = "0.3.3"
 pulldown-cmark = "0.12.1"
