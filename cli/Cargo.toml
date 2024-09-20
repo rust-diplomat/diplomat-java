@@ -5,7 +5,7 @@ edition = "2021"
 
 [dependencies]
 askama = "0.12.1"
-clap = "4.5.17"
+clap = "4"
 colored = "2.1.0"
 # TODO: Change once https://github.com/rust-diplomat/diplomat/pull/694 is merged
 diplomat-runtime = { git = "https://github.com/jcrist1/diplomat", branch = "tool-and-c-backend-pub", package = "diplomat-runtime"}
