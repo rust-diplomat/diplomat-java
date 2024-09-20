@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-diplomat = { git = "https://github.com/rust-diplomat/diplomat.git", rev = "d7ecae027753e5b6839169c3492e5269bc0ebbaa", version = "0.8.0" }
-diplomat-runtime = { git = "https://github.com/rust-diplomat/diplomat.git", rev = "d7ecae027753e5b6839169c3492e5269bc0ebbaa", version = "0.8.1" }
-diplomat-tool = { git = "https://github.com/rust-diplomat/diplomat.git", rev = "d7ecae027753e5b6839169c3492e5269bc0ebbaa", version = "0.8.0" }
-diplomat_core = { git = "https://github.com/rust-diplomat/diplomat.git", rev = "d7ecae027753e5b6839169c3492e5269bc0ebbaa", version = "0.8.0" }
+# TODO: Change once https://github.com/rust-diplomat/diplomat/pull/694 is merged
+diplomat-runtime = { git = "https://github.com/jcrist1/diplomat.git", branch = "tool-and-c-backend-pub" }
+diplomat-tool = { git = "https://github.com/jcrist1/diplomat.git", branch = "tool-and-c-backend-pub" }
+diplomat_core = { git = "https://github.com/jcrist1/diplomat.git", branch = "tool-and-c-backend-pub" }

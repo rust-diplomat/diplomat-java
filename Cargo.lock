@@ -185,26 +185,15 @@ dependencies = [
 ]
 
 [[package]]
-name = "diplomat"
-version = "0.8.0"
-source = "git+https://github.com/rust-diplomat/diplomat.git?rev=d7ecae027753e5b6839169c3492e5269bc0ebbaa#d7ecae027753e5b6839169c3492e5269bc0ebbaa"
-dependencies = [
- "diplomat_core 0.8.0 (git+https://github.com/rust-diplomat/diplomat.git?rev=d7ecae027753e5b6839169c3492e5269bc0ebbaa)",
- "proc-macro2",
- "quote",
- "syn",
-]
-
-[[package]]
 name = "diplomat-java"
 version = "0.1.0"
 dependencies = [
  "askama",
  "clap",
  "colored",
- "diplomat-runtime 0.8.1",
- "diplomat-tool 0.8.0",
- "diplomat_core 0.8.0",
+ "diplomat-runtime",
+ "diplomat-tool",
+ "diplomat_core",
  "displaydoc",
  "heck 0.5.0",
  "indenter",
@@ -221,40 +210,17 @@ dependencies = [
 [[package]]
 name = "diplomat-runtime"
 version = "0.8.1"
-
-[[package]]
-name = "diplomat-runtime"
-version = "0.8.1"
-source = "git+https://github.com/rust-diplomat/diplomat.git?rev=d7ecae027753e5b6839169c3492e5269bc0ebbaa#d7ecae027753e5b6839169c3492e5269bc0ebbaa"
+source = "git+https://github.com/jcrist1/diplomat.git?branch=tool-and-c-backend-pub#c759be8605db6453adbf97599f2179c82cfa3d5d"
 
 [[package]]
 name = "diplomat-tool"
 version = "0.8.0"
+source = "git+https://github.com/jcrist1/diplomat.git?branch=tool-and-c-backend-pub#c759be8605db6453adbf97599f2179c82cfa3d5d"
 dependencies = [
  "askama",
  "clap",
  "colored",
- "diplomat_core 0.8.0",
- "displaydoc",
- "heck 0.4.1",
- "indenter",
- "pulldown-cmark 0.11.3",
- "quote",
- "serde",
- "syn",
- "syn-inline-mod",
- "toml 0.5.11",
-]
-
-[[package]]
-name = "diplomat-tool"
-version = "0.8.0"
-source = "git+https://github.com/rust-diplomat/diplomat.git?rev=d7ecae027753e5b6839169c3492e5269bc0ebbaa#d7ecae027753e5b6839169c3492e5269bc0ebbaa"
-dependencies = [
- "askama",
- "clap",
- "colored",
- "diplomat_core 0.8.0 (git+https://github.com/rust-diplomat/diplomat.git?rev=d7ecae027753e5b6839169c3492e5269bc0ebbaa)",
+ "diplomat_core",
  "displaydoc",
  "heck 0.4.1",
  "indenter",
@@ -269,21 +235,7 @@ dependencies = [
 [[package]]
 name = "diplomat_core"
 version = "0.8.0"
-dependencies = [
- "displaydoc",
- "either",
- "proc-macro2",
- "quote",
- "serde",
- "smallvec",
- "strck_ident",
- "syn",
-]
-
-[[package]]
-name = "diplomat_core"
-version = "0.8.0"
-source = "git+https://github.com/rust-diplomat/diplomat.git?rev=d7ecae027753e5b6839169c3492e5269bc0ebbaa#d7ecae027753e5b6839169c3492e5269bc0ebbaa"
+source = "git+https://github.com/jcrist1/diplomat.git?branch=tool-and-c-backend-pub#c759be8605db6453adbf97599f2179c82cfa3d5d"
 dependencies = [
  "displaydoc",
  "either",
@@ -398,10 +350,9 @@ checksum = "7943c866cc5cd64cbc25b2e01621d07fa8eb2a1a23160ee81ce38704e97b8ecf"
 name = "jextrsact"
 version = "0.1.0"
 dependencies = [
- "diplomat",
- "diplomat-runtime 0.8.1 (git+https://github.com/rust-diplomat/diplomat.git?rev=d7ecae027753e5b6839169c3492e5269bc0ebbaa)",
- "diplomat-tool 0.8.0 (git+https://github.com/rust-diplomat/diplomat.git?rev=d7ecae027753e5b6839169c3492e5269bc0ebbaa)",
- "diplomat_core 0.8.0 (git+https://github.com/rust-diplomat/diplomat.git?rev=d7ecae027753e5b6839169c3492e5269bc0ebbaa)",
+ "diplomat-runtime",
+ "diplomat-tool",
+ "diplomat_core",
 ]
 
 [[package]]
