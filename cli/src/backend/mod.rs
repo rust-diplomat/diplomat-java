@@ -1,4 +1,5 @@
 use std::borrow::Cow;
+use std::ffi::OsString;
 use std::fs::File;
 use std::io::Write;
 use std::path::Path;
@@ -192,15 +193,17 @@ pub(crate) fn run<'a>(
         command.arg("-r").arg(tmp_path).output()
     };
 
-    let remove_extraneous_files = || {
-        let mut command = std::process::Command::new("rm");
-        command
-            .arg("-r")
-            .arg(out_folder.join(format!(
-                "/src/main/{domain}/{lib_name}/{{_*, funopen*, FILE.java}}",
-                domain = domain.replace(".", "/")
-            )))
-            .output()
+    let remove_extraneous_files = |pattern| {
+        let removal_path = out_folder.join(format!(
+            "src/main/java/{domain}/{lib_name}/ntv/{pattern}",
+            domain = domain.replace(".", "/")
+        ));
+        let mut command = std::process::Command::new("sh");
+        let mut inner_command = OsString::from("rm ");
+        inner_command.push(removal_path.as_os_str());
+        command.arg("-c").arg(&inner_command);
+        println!("Command is {command:?}");
+        command.output()
     };
 
     match command.output() {
@@ -223,11 +226,13 @@ pub(crate) fn run<'a>(
 
             let stderr = String::from_utf8_lossy(&ok.stderr);
             println!("Std Err from jextract:\n{stderr}");
-            remove_extraneous_files().expect("Failed to remove extraneous files");
         }
     }
 
     cleanup().expect("Failed to clean up temporary files");
+    remove_extraneous_files("_*").expect("Failed to remove extraneous files");
+    remove_extraneous_files("funopen*").expect("Failed to remove extraneous files");
+    remove_extraneous_files("FILE.java").expect("Failed to remove extraneous files");
 
     let lib_file = LibFile {
         domain: domain.clone(),
