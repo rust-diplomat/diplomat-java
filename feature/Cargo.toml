@@ -12,6 +12,6 @@ edition = "2021"
 crate-type = ["staticlib", "rlib", "cdylib"]
 
 [dependencies]
-diplomat-runtime = { git = "https://github.com/rust-diplomat/diplomat", revision = "588f6ffe413bfca367bbb2a749a5965d40a3d5b3", package = "diplomat-runtime"}
-diplomat = { git = "https://github.com/rust-diplomat/diplomat", revision = "588f6ffe413bfca367bbb2a749a5965d40a3d5b3", package = "diplomat" }
+diplomat-runtime = { git = "https://github.com/rust-diplomat/diplomat", rev = "588f6ffe413bfca367bbb2a749a5965d40a3d5b3", package = "diplomat-runtime"}
+diplomat = { git = "https://github.com/rust-diplomat/diplomat", rev = "588f6ffe413bfca367bbb2a749a5965d40a3d5b3", package = "diplomat" }
 log = { version = "0.4" }

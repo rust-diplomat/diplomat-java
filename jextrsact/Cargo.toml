@@ -4,6 +4,6 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-diplomat-runtime = { git = "https://github.com/rust-diplomat/diplomat", revision = "588f6ffe413bfca367bbb2a749a5965d40a3d5b3", package = "diplomat-runtime"}
-diplomat-tool = { git = "https://github.com/rust-diplomat/diplomat", revision = "588f6ffe413bfca367bbb2a749a5965d40a3d5b3", package = "diplomat-tool" }
-diplomat_core = { git = "https://github.com/rust-diplomat/diplomat", revision = "588f6ffe413bfca367bbb2a749a5965d40a3d5b3", package = "diplomat_core" }
+diplomat-runtime = { git = "https://github.com/rust-diplomat/diplomat", rev = "588f6ffe413bfca367bbb2a749a5965d40a3d5b3", package = "diplomat-runtime"}
+diplomat-tool = { git = "https://github.com/rust-diplomat/diplomat", rev = "588f6ffe413bfca367bbb2a749a5965d40a3d5b3", package = "diplomat-tool" }
+diplomat_core = { git = "https://github.com/rust-diplomat/diplomat", rev = "588f6ffe413bfca367bbb2a749a5965d40a3d5b3", package = "diplomat_core" }
