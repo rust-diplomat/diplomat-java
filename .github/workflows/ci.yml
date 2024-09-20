@@ -89,7 +89,7 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Check rustfmt
-      run: cargo add -p diplomat-java --git https://github.com/rust-diplomat/diplomat.git diplomat-tool diplomat-runtime diplomat_core diplomat
+      run: cargo add -p diplomat-java --git https://github.com/rust-diplomat/diplomat.git --branch main diplomat-tool diplomat-runtime diplomat_core
 
     - name: Check clippy
       run: cargo build
