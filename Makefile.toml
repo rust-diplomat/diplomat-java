@@ -22,7 +22,7 @@ mvn test
 '''
 
 
-[tasks.gen-java-feature]
+[tasks.gen-feature]
 category = "Code generation"
 script_runner = "@bash"
 script = '''

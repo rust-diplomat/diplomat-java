@@ -41,7 +41,7 @@ jobs:
       run: rustup install 1.71 --profile minimal
 
     - name: Check
-      run: cargo +1.71 check -p cli -p jextrsact 
+      run: cargo +1.71 check -p diplomatjava -p jextrsact -p feature-tests
 
   test:
     runs-on: ubuntu-latest
@@ -57,7 +57,7 @@ jobs:
         architecture: x64
         cache: maven
     - name: Test Java
-      run: cargo make test-java
+      run: cargo make test-feature
 
   test-gen:
     runs-on: ubuntu-latest
@@ -81,4 +81,4 @@ jobs:
     - name: Add jextract to path
       run: echo "/opt/jextract-22/bin" >> $GITHUB_PATH
     - name: Run generated java
-      run: cargo make gen-java
+      run: cargo make gen-feature
