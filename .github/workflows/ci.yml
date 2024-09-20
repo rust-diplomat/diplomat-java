@@ -41,7 +41,7 @@ jobs:
       run: rustup install 1.71 --profile minimal
 
     - name: Check
-      run: cargo +1.71 check -p diplomatjava -p jextrsact -p feature-tests
+      run: cargo +1.71 check -p diplomat-java -p jextrsact -p feature-tests
 
   test:
     runs-on: ubuntu-latest
