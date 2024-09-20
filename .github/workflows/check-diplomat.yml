@@ -1,5 +1,5 @@
 
-name: Check Diplomat
+name: Check Diplomat Compatibility
 
 on:
   schedule:
@@ -15,8 +15,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Check rustfmt
+    - name: Add latest dipomat
       run: cargo add -p diplomat-java --git https://github.com/rust-diplomat/diplomat.git --branch main diplomat-tool diplomat-runtime diplomat_core
 
-    - name: Check clippy
+    - name: Check build
       run: cargo build

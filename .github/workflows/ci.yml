@@ -1,4 +1,4 @@
-name: Diplomat CI
+name: Diplomat Java CI
 
 on:
   push:
