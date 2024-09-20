@@ -3,7 +3,7 @@ name: Check Diplomat Compatibility
 
 on:
   schedule:
-    - cron: "02 * * * 5"
+    - cron: "0 0 * * 5"
 
 env:
   CARGO_TERM_COLOR: always
@@ -13,8 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-      with: 
-          ref: move-panama-backend
 
     - name: Add latest dipomat
       run: cargo add -p diplomat-java --git https://github.com/rust-diplomat/diplomat.git --branch main diplomat-tool diplomat-runtime diplomat_core
