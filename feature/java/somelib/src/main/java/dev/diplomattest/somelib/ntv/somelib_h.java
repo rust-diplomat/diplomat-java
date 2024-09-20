@@ -14359,13 +14359,13 @@ public class somelib_h {
     }
     /**
      * {@snippet lang=c :
-     * #define __ASSERT_FILE_NAME "jextract$18314337822400972544.h"
+     * #define __ASSERT_FILE_NAME "jextract$5639583684901567061.h"
      * }
      */
     public static MemorySegment __ASSERT_FILE_NAME() {
         class Holder {
             static final MemorySegment __ASSERT_FILE_NAME
-                = somelib_h.LIBRARY_ARENA.allocateFrom("jextract$18314337822400972544.h");
+                = somelib_h.LIBRARY_ARENA.allocateFrom("jextract$5639583684901567061.h");
         }
         return Holder.__ASSERT_FILE_NAME;
     }
