@@ -82,3 +82,14 @@ jobs:
       run: echo "/opt/jextract-22/bin" >> $GITHUB_PATH
     - name: Run generated java
       run: cargo make gen-feature
+
+  check-latest-diplomat:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Check rustfmt
+      run: cargo add -p diplomat-java --git https://github.com/rust-diplomat/diplomat.git diplomat-tool diplomat-runtime diplomat_core diplomat
+
+    - name: Check clippy
+      run: cargo build
