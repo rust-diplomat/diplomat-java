@@ -368,14 +368,14 @@ struct TyGenContext<'a, 'cx> {
 }
 
 #[derive(Debug, Clone)]
-struct Conversion<'cx> {
+pub(crate) struct Conversion<'cx> {
     conversion: Cow<'cx, str>,
     converted_value: Cow<'cx, str>,
 }
 
 mod arena {
     use std::fmt::Display;
-    pub type Render<'cx> = Box<dyn Fn(Arena<'cx>) -> Conversion<'cx> + 'cx>;
+    pub(crate) type Render<'cx> = Box<dyn Fn(Arena<'cx>) -> Conversion<'cx> + 'cx>;
 
     const UNIT: &() = &();
     use super::Conversion;
@@ -386,19 +386,19 @@ mod arena {
         _marker: &'cx (),
     }
     impl<'cx, F: Fn(Arena<'cx>) -> Conversion<'cx> + 'cx> AllocationConversion<'cx, F> {
-        pub fn dynamic(clos: F) -> AllocationConversion<'cx, Render<'cx>> {
+        pub(crate) fn dynamic(clos: F) -> AllocationConversion<'cx, Render<'cx>> {
             AllocationConversion {
                 clos: Box::new(clos) as Render<'cx>,
                 _marker: UNIT,
             }
         }
 
-        pub fn render(self, arena: Arena<'cx>) -> Conversion<'cx> {
+        pub(crate) fn render(self, arena: Arena<'cx>) -> Conversion<'cx> {
             (self.clos)(arena)
         }
     }
 
-    pub enum Arena<'cx> {
+    pub(crate) enum Arena<'cx> {
         Closed,
         Auto,
         #[allow(unused)]
@@ -416,7 +416,7 @@ mod arena {
     }
 }
 
-enum AllocateConversion<'cx, F: Fn(arena::Arena<'cx>) -> Conversion<'cx>> {
+pub(crate) enum AllocateConversion<'cx, F: Fn(arena::Arena<'cx>) -> Conversion<'cx>> {
     NotAllocating(Conversion<'cx>),
     Allocating(arena::AllocationConversion<'cx, F>),
 }
